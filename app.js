@@ -14,10 +14,12 @@ var instanceRouter = require('./routes/instanceRoute');
 
 var app = express();
 
-app.use(cors());
+app.use(cors({ origin: true }));
 
 mongoose.connect(
-  'mongodb+srv://satsangTest:kIxgwdtAZyYClS7A@cluster0-mdil5.mongodb.net/satsang?retryWrites=true&w=majority', () => console.log('DB Connected'));
+  'mongodb+srv://satsangTest:kIxgwdtAZyYClS7A@cluster0-mdil5.mongodb.net/satsang?retryWrites=true&w=majority',
+  () => console.log('DB Connected')
+);
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
@@ -33,7 +35,7 @@ app.use('/users', usersRouter);
 app.use('/books', bookRouter);
 app.use('/instances', instanceRouter);
 app.get('*', function (res) {
-  res.send('nope')
-})
+  res.send('nope');
+});
 
 module.exports = app;
