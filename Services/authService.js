@@ -3,6 +3,8 @@ const jwt = require('jsonwebtoken');
 const privateKey = process.env.SECRET;
 
 module.exports.register = function (req, res) {
+  console.log('REQUEST RECIEVED ------------------------------------');
+  console.log(req);
   User.create(
     {
       username: req.body.username,
@@ -27,6 +29,8 @@ module.exports.register = function (req, res) {
 };
 
 module.exports.login = function (req, res, next) {
+  console.log('REQUEST RECIEVED ------------------------------------');
+  console.log(req);
   User.findOne({ email: req.body.email }, function (err, user) {
     if (err) return next(err);
     if (!user) {
