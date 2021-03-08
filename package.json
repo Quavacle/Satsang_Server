@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "npm run start",
+    "start": "node ./bin/www",
     "devstart": "SET DEBUG=satserver:* & npm run start",
     "test": "mocha --recursive"
   },
