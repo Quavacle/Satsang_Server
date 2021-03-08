@@ -34,8 +34,5 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/books', bookRouter);
 app.use('/instances', instanceRouter);
-app.get('*', function (res) {
-  res.send('nope');
-});
 
 module.exports = app;
