@@ -17,6 +17,21 @@ var app = express();
 app.options('*', cors());
 app.use(cors({ origin: true }));
 
+var corsMiddleware = function (req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header(
+    'Access-Control-Allow-Methods',
+    'OPTIONS, GET, PUT, PATCH, POST, DELETE'
+  );
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Content-Type, X-Requested-With, Authorization'
+  );
+
+  next();
+};
+
+app.use(corsMiddleware);
 mongoose.connect(
   'mongodb+srv://satsangTest:kIxgwdtAZyYClS7A@cluster0-mdil5.mongodb.net/satsang?retryWrites=true&w=majority',
   () => console.log('DB Connected')
