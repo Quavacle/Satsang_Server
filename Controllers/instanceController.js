@@ -20,10 +20,6 @@ module.exports.create = (req, res) => {
       if (err) {
         res.status(500).json('Issue creating instance' + err);
       }
-      console.log(
-        'INSTANCE CREATION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
-      );
-      console.log(instance);
       res.status(201).json(instance);
     }
   );
