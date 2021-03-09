@@ -14,8 +14,8 @@ var instanceRouter = require('./routes/instanceRoute');
 
 var app = express();
 
-app.use(cors({ origin: true }));
 app.options('*', cors());
+app.use(cors({ origin: true }));
 
 mongoose.connect(
   'mongodb+srv://satsangTest:kIxgwdtAZyYClS7A@cluster0-mdil5.mongodb.net/satsang?retryWrites=true&w=majority',
